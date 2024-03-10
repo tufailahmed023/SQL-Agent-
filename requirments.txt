@@ -1,0 +1,7 @@
+langchain
+langchain-experimental
+langchain-community
+google-generativeai
+sentence-transformers
+chromadb
+streamlit
