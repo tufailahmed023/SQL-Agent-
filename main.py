@@ -71,7 +71,7 @@ class sql_agent:
         llm = self.llm()
         db = self.database_con()
         vectorstore = self.embedding()
-        example_selector = SemanticSimilarityExampleSelector(vectorstore=vectorstore,k=2)
+        example_selector = SemanticSimilarityExampleSelector(vectorstore=vectorstore,k=3)
         mysql_prompt,example_prompt = self.mysql_prompt()
         few_shot_prompt = FewShotPromptTemplate(example_selector=example_selector,example_prompt=example_prompt,
                                                 prefix=mysql_prompt,suffix=PROMPT_SUFFIX,
@@ -86,4 +86,4 @@ class sql_agent:
         return query_chain(query)
     
 # obj = sql_agent()
-# obj.start_app("which all employee have a rating of 3 or more ?")
+# obj.start_app("Get me all employee who have a rating of 3 ")
